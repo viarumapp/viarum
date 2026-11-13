@@ -75,3 +75,21 @@ a:hover{color:#ffdf9d}
   .legal-article p { font-size: 16px; line-height: 1.7; }
   .legal-article .panel { padding-inline: clamp(12px, 4vw, 22px); }
 }
+
+/* Mobile legal pages use normal block flow so the contents list cannot size the article. */
+@media (max-width: 900px) {
+  body { overflow-x: clip; }
+  .legal-layout { display: block; }
+  .legal-layout > aside { margin-bottom: 24px; }
+  .legal-layout > aside,
+  .legal-layout > .legal-article { width: 100%; max-width: 100%; }
+  .toc-nav { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .toc-nav a { width: 100%; white-space: normal; overflow-wrap: break-word; }
+  .legal-article, .legal-article p, .legal-article h2, .legal-article h3 {
+    white-space: normal;
+    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+  }
+  .legal-article .panel a.email { display: inline; }
+  .site-footer a { overflow-wrap: anywhere; }
+}
