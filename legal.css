@@ -61,3 +61,17 @@ a:hover{color:#ffdf9d}
 @media(max-width:900px){.shell{width:calc(100% - 44px)}.legal-layout{grid-template-columns:1fr;gap:27px;padding-top:45px;padding-bottom:90px}.side-inner{position:static;max-height:none;padding:0}.toc-nav{display:flex;flex-direction:row;gap:6px;overflow-x:auto;border-left:0;scrollbar-width:thin}.toc-nav a{padding:9px 13px;margin:0;white-space:nowrap;border:1px solid #423b30;border-radius:30px;font-size:12px}.side-box{display:none}.legal-article{padding:36px 30px}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}}
 @media(max-width:600px){.shell{width:calc(100% - 36px)}.site-header{height:auto;min-height:73px}.nav-inner{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:0}.brand{font-size:20px;min-height:65px}.brand img{width:36px}.site-nav{width:100%;border-top:1px solid #242428;display:flex;justify-content:space-around;gap:8px}.site-nav a{font-size:10px;letter-spacing:.045em;white-space:nowrap;padding:10px 0}.legal-hero{padding:64px 0 58px}.legal-hero h1{font-size:clamp(46px,13vw,64px)}.legal-hero .subtitle{font-size:15px}.legal-article{padding:28px 23px}.legal-article p{font-size:14px;line-height:1.9}.legal-article .panel{padding:22px}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.footer-grid>div:first-child{grid-column:span 2}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Keep legal copy and navigation inside the viewport at narrow widths. */
+.legal-layout > *, .side-inner, .legal-article .panel { min-width: 0; }
+.legal-article, .legal-hero, .site-footer { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  .legal-layout { grid-template-columns: minmax(0, 1fr); }
+  .toc-nav { flex-wrap: wrap; overflow: visible; }
+  .toc-nav a { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+}
+@media (max-width: 600px) {
+  .legal-article { padding-inline: clamp(14px, 5vw, 23px); }
+  .legal-article p { font-size: 16px; line-height: 1.7; }
+  .legal-article .panel { padding-inline: clamp(12px, 4vw, 22px); }
+}
