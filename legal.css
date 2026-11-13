@@ -93,3 +93,11 @@ a:hover{color:#ffdf9d}
   .legal-article .panel a.email { display: inline; }
   .site-footer a { overflow-wrap: anywhere; }
 }
+
+@media (max-width: 600px) {
+  html { overflow-x: hidden; }
+  .nav-inner { flex-direction: column; }
+  .site-nav { flex-wrap: wrap; }
+  .legal-layout, .legal-layout > aside, .legal-article { min-width: 0; }
+  .legal-article p { max-width: 100%; }
+}
